@@ -1,0 +1,263 @@
+
+\documentclass[a4paper,11pt]{amsbook}
+
+% \documentclass[ structure      = book
+%               , layout         = standardaureo
+%               , maketitlestyle = standard
+%               , partfont       = smallcaps
+%               , partstyle      = parright 
+%               , chapstyle      = parcenter
+%               , secstyle       = center
+%               , secfont        = roman
+%               , subsecstyle    = center
+%               , subsecfont     = roman
+%               %, twocolcontents = toc
+%               , liststyle      = aligned
+%               , quotesize      = normalsize
+%               , headerstyle    = center
+%               , footnotestyle  = dotted
+%               ]{suftesi}
+
+\usepackage{iftex}
+
+\ifluatex
+  \usepackage[no-math]{fontspec}
+  \usepackage{polyglossia}
+  \setmainlanguage[variant=uk]{english}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage[english]{babel}
+\fi
+
+\usepackage{microtype}
+
+\usepackage[english=british]{csquotes}
+
+\usepackage{adjustbox}
+
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks,breaklinks}
+
+\usepackage[
+           %  bibstyle=authoryear
+           %, citestyle=authortitle-icomp
+             bibstyle = alphabetic
+           , citestyle = alphabetic
+           , pluralothers=true
+           , autolang=langname
+           ]{biblatex}
+\addbibresource{biblio.bib}
+
+\usepackage{enumitem}
+\setlist[itemize,1]{
+  leftmargin=\parindent
+}
+
+%\usepackage[rm,tt=false]{libertine}
+\usepackage{libertineRoman}
+\usepackage{MnSymbol}
+\usepackage{libertinust1math}
+\usepackage[cal=cm,bb=stix]{mathalfa}
+\usepackage{mathtools}
+\usepackage{extarrows}
+\usepackage{nicematrix}
+
+\usepackage{tikz}
+\usetikzlibrary{ calc
+               , babel
+               , arrows.meta
+               , shapes.geometric
+               }
+%\tikzset{>={To[length=3pt,width=3pt]}}
+\usepackage{tikz-cd}
+\tikzcdset{ arrow style=math font
+          , diagrams={>={To[length=3pt,width=3pt]}}
+          , shorten=-2pt
+          , natural/.style={shorten=2pt,Rightarrow}
+          %, cramped
+          }
+
+\usepackage{
+  %amssymb,
+  %amsmath,amsfonts,
+  %bm,
+  %latexsym,
+  %amscd,
+  verbatim,nicefrac,
+  %colonequals,%dsfont,
+  % appendix,
+  stackrel,
+  % mathrsfs,
+  cleveref}
+
+
+\usepackage[color,matrix,arrow]{xy}
+\usepackage{float}
+% \usepackage{times}
+\usepackage{graphicx}
+% \usepackage{fullpage,adjustbox}
+\usepackage{array}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\newtheorem{corollary*}[theorem]{Corollary}
+\newtheorem{theorem*}[theorem]{Theorem}
+
+% Roman numbers
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+% Numerical sets
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+%\def\R{\mathbb{R}}
+
+% Metric
+\def\M{\mathcal{M}}
+\def\Li{\mathfrak{L}}
+\def\CS{\mathfrak{C}}
+\def\S{\mathfrak{S}}
+%\def\Mod{\mathsf{Mod}}
+
+% Limits and Colimits Operators
+\DeclareMathOperator*\colim{colim}
+
+% Categories
+\def\op{\text{op}}
+\def\ob{\mathsf{ob}}
+\def\id{\mathsf{id}}
+\def\arr{\mathsf{arr}}
+\def\Hom{\operatorname{Hom}}
+\renewcommand\hom\Hom
+\def\intHom{\underline{\Hom}}
+\def\Homc{{\Hom_{\bullet}}}
+\def\Fun{\text{Fun}}
+\def\y{\text{y}}
+
+% categories
+\def\Set{\mathbf{Set}}
+\def\Cat{\mathsf{Cat}}
+\def\Set{\mathsf{Set}}
+\def\PSh{\mathsf{PSh}}
+\def\Ind{\mathsf{Ind}}
+\def\Ch{\mathsf{Ch}}
+\def\Mod{\mathsf{Mod}}
+\def\Bilin{\mathsf{Bilin}}
+\def\Ab{\mathsf{Ab}}
+% \def\lmod{-\mathsf{mod}}
+\DeclareMathOperator\Cone{Cone}
+\DeclareMathOperator\Cocone{Cocone}
+%\DeclareMathOperator\id{id}
+\DeclareMathOperator\Tot{Tot}
+
+
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\C{\mathcal{C}}
+\def\D{\mathcal{D}}
+\def\I{\mathcal{I}}
+\def\K{\mathcal{K}}
+\def\T{\mathcal{T}}
+\def\V{\mathcal{V}}
+
+\def\O{\mathcal{O}}
+\def\P{\mathcal{P}}
+%\def\Q{\mathcal{Q}}
+
+\def\d{\mathsf{D}}
+
+
+
+
+% Operators 
+\def\susp{\Sigma}
+
+% Arrow
+\def\iso{\cong}
+\def\qiso{\simeq}
+\def\into{\xhookrightarrow{}}
+\def\onto{\twoheadrightarrow}
+
+\def\iff{\Leftrightarrow}
+
+
+% Products and Coproducts in Text
+\def\coprod{\amalg}
+
+
+% Abelian Categories
+\def\equ{\mathsf{eq}}
+\def\coequ{\mathsf{coeq}}
+\def\ker{\mathsf{ker}}
+\def\coker{\mathsf{coker}}
+\def\im{\mathsf{im}}
+\def\coim{\mathsf{coim}}
+\def\cyl{\mathsf{cyl}}
+\def\cone{\mathsf{cone}}
+\def\cocone{\mathsf{cocone}}
+\def\End{\mathsf{End}}
+
+% Derived categories and functors
+
+\def\D{\mathcal{D}}
+\def\natqiso{\stackrel{\sim}{\implies}}
+\DeclareMathOperator\Map{Map}
+\DeclareMathOperator\DGinj{DG_{\text{inj}}}
+\DeclareMathOperator\DGproj{DG_{\text{proj}}}
+
+% Derived Functors
+\def\R{\mathbb{R}}
+\def\L{\mathbb{L}}
+\DeclareMathOperator\cst{cst}
+\DeclareMathOperator\Ext{Ext}
+\DeclareMathOperator\Tor{Tor}
+
+% Sites
+\def\Cov{\mathsf{Cov}}
+\def\Sh{\mathsf{Sh}}
+\def\F{\mathcal{F}}
+\def\G{\mathcal{G}}
+\def\U{\mathcal{U}}
+\def\V{\mathcal{V}}
+\def\P{\mathcal{P}}
+\def\cH{\hat{H}}
+\def\H{\mathcal{H}}
+\DeclareMathOperator\eq{eq}
+\DeclareMathOperator\coeq{coeq}
+
+
+\title{Homological Algebra}
+\author{}
+\date{University of Milan, Second Semester 2025/2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{chapters/abelian-categories.tex}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:
